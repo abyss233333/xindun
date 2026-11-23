@@ -1,5 +1,4 @@
 """Shared follow-up planning for real_grasp and its camera animation.
-
 Station poses and step numbers follow xindun_1110-2/main_new(1)cc.py.
 All IK is recomputed with the current I5Dual model and current bottle grasp.
 No reference JSON is modified or replayed as robot joint commands.
