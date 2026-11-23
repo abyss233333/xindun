@@ -1043,7 +1043,9 @@ def run_realsense_tracking(mesh_file, min_depth=0.2, max_depth=1.5, debug=1,
 # MESH_FILE = "demo_data/mustard0/mesh/textured_simple.obj"  # 物体 mesh 文件路径
 # MESH_FILE = "demo_data/mustard0/mesh/objectfoundationpose.obj"  # 物体 mesh
 
-MESH_FILE = r"D:\FoundationPose-main\FoundationPose-main\meshes_stl\culture_flask1.STL"  # 物体 mesh
+from project_paths import FOUNDATIONPOSE_ROOT
+
+MESH_FILE = str(FOUNDATIONPOSE_ROOT / "meshes_stl" / "culture_flask1.STL")  # 物体 mesh
 
 MIN_DEPTH = 0.1   # 最小跟踪距离（米）- 从 0.001 改为 0.1，过滤太近的噪声
 MAX_DEPTH = 1.5   # 最大跟踪距离（米）- 从 1 改为 1.5，增加范围

@@ -10,15 +10,18 @@ import sys
 import time
 from datetime import datetime
 
+from project_paths import (
+    FOUNDATIONPOSE_PYTHON,
+    FOUNDATIONPOSE_ROOT,
+    POSE_RESULT_ROOT,
+    SAM_CHECKPOINT,
+    SAM_SOURCE_ROOT,
+    WRS_PYTHON,
+    WRS_ROOT,
+)
 
-FOUNDATIONPOSE_ROOT = Path(r"D:\FoundationPose-main\FoundationPose-main")
-FOUNDATIONPOSE_PYTHON = Path(r"D:\conda-envs\foundationpose-win\python.exe")
-WRS_ROOT = Path(r"D:\wrs-fujikoshi-main\wrs-fujikoshi-main")
-WRS_PYTHON = Path(r"C:\Users\asus\miniconda3\envs\wrs\python.exe")
-SAM_SOURCE_ROOT = Path(r"D:\sam_seg\segment-anything-main\segment-anything-main")
-SAM_CHECKPOINT = Path(r"D:\sam_seg\SAM-Tool-main\sam_vit_h_4b8939.pth")
 DEFAULT_MESH_FILE = WRS_ROOT / "xindun_1110" / "objects" / "cf.STL"
-RESULT_ROOT = Path(__file__).resolve().parent / "foundationpose_world_result"
+RESULT_ROOT = POSE_RESULT_ROOT
 DEFAULT_REFERENCE_ORIENTATION_POSE = (
     RESULT_ROOT / "20261113_220757_649151" / "pose.json"
 )
