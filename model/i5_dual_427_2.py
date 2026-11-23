@@ -18,7 +18,6 @@ from trac_ik import TracIK
 
 class I5Dual(ri.RobotInterface):
     """Two I5 arms with fixed workcell stands.
-
     The class follows the single-arm ``robot_sim.robots.i5.i5`` interface.
     ``lft_arm`` and ``rgt_arm`` each have six joints.  ``both_arm`` accepts
     one 12-element configuration with the left arm first.
