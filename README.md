@@ -57,7 +57,7 @@ python preview_fixed_pose_20261117_005020_438451.py
 
 ## 位姿与规划设置
 
-- 目标网格为 `427/meshes/cf.STL`；FoundationPose 输出的世界坐标以米为单位。
+- 目标网格为 `xindun_1110/objects/cf.STL`；FoundationPose 输出的世界坐标以米为单位。
 - `real_grasp.py` 将物体局部坐标补偿 `Y +10 mm、Z +5 mm`，并将候选姿态的物体 Z 轴对齐到参考样本方向，保留绕 Z 轴的朝向。`preview_live_workflow.py` 与真机共用这套 pose 处理。
 - 参考姿态文件默认是 `20261113_220757_649151/pose.json`，可通过环境变量 `XINDUN_REFERENCE_ORIENTATION_POSE` 指定其他文件。FoundationPose 脚本、Python 环境、网格和 SAM 权重的位置配置在 `real_grasp.py` 顶部；本机部署路径不同时需在那里更新。
 - 工位目标和开瓶器模型位置定义在 `workcell_followup.py`。真机和实时动画将开瓶器目标沿世界 `+X` 偏移 `75 mm`，固定 pose 动画也应用相同偏移。

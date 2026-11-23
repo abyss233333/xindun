@@ -44,7 +44,7 @@ TABLE_REFERENCE_POSE_FILE = os.path.join(
 FOUNDATIONPOSE_ROOT = Path(r"D:\FoundationPose-main\FoundationPose-main")
 FOUNDATIONPOSE_SCRIPT = FOUNDATIONPOSE_ROOT / "foundationpose_d435_world_visualize.py"
 FOUNDATIONPOSE_PYTHON = Path(r"D:\conda-envs\foundationpose-win\python.exe")
-FOUNDATIONPOSE_MESH = Path(REPO_DIR) / "427" / "meshes" / "cf.STL"
+FOUNDATIONPOSE_MESH = Path(REPO_DIR) / "xindun_1110" / "objects" / "cf.STL"
 SAM_CHECKPOINT = Path(r"D:\sam_seg\SAM-Tool-main\sam_vit_h_4b8939.pth")
 REFERENCE_ORIENTATION_POSE = Path(os.environ.get(
     "XINDUN_REFERENCE_ORIENTATION_POSE",
