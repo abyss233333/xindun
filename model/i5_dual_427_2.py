@@ -786,7 +786,7 @@ if __name__ == '__main__':
     robot.fk("lft_arm", jnt1)
     robot.fk("rgt_arm", jnt2)
     robot.gen_meshmodel().attach_to(base)
-    obj = cm.CollisionModel(r"D:\wrs-fujikoshi-main\wrs-fujikoshi-main\xindun_1110\objects\cf.STL")
+    obj = cm.CollisionModel(os.path.join(this_dir, "..", "objects", "cf.STL"))
     obj.set_pos(np.array([0.884, 0.15, -0.045]))
     obj.set_rotmat(rm.rotmat_from_axangle([0, 0, 1], -math.pi / 2))
     obj.attach_to(base)
