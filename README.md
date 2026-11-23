@@ -21,7 +21,7 @@
 在 PyCharm 选择 `wrs` 环境，或在 PowerShell 中进入本目录：
 
 ```powershell
-cd D:\wrs-fujikoshi-main\wrs-fujikoshi-main\xindun_1110
+cd .\xindun_1110
 ```
 
 现场识别并播放动画：
@@ -33,7 +33,7 @@ python preview_live_workflow.py
 读取已有 FoundationPose 原始 `pose.json`，只规划检查而不打开动画窗口：
 
 ```powershell
-python preview_live_workflow.py --pose-file "D:\FoundationPose-main\FoundationPose-main\foundationpose_world_result\<结果目录>\pose.json" --check-only
+python preview_live_workflow.py --pose-file "..\..\FoundationPose-main\foundationpose_world_result\<结果目录>\pose.json" --check-only
 ```
 
 删除 `--check-only` 会显示动画；`--speed` 只改变动画播放速度，不改变规划或真机速度。使用 `--pose-file` 时应传 FoundationPose 原始 pose，程序会自行应用当前补偿。
@@ -59,7 +59,7 @@ python preview_fixed_pose_20261117_005020_438451.py
 
 - 目标网格为 `xindun_1110/objects/cf.STL`；FoundationPose 输出的世界坐标以米为单位。
 - `real_grasp.py` 将物体局部坐标补偿 `Y +10 mm、Z +5 mm`，并将候选姿态的物体 Z 轴对齐到参考样本方向，保留绕 Z 轴的朝向。`preview_live_workflow.py` 与真机共用这套 pose 处理。
-- 参考姿态文件默认是 `20261113_220757_649151/pose.json`，可通过环境变量 `XINDUN_REFERENCE_ORIENTATION_POSE` 指定其他文件。FoundationPose 脚本、Python 环境、网格和 SAM 权重的位置配置在 `real_grasp.py` 顶部；本机部署路径不同时需在那里更新。
+- 路径以仓库目录定位。`project_paths.py` 会查找相邻的 FoundationPose checkout；如果目录布局不同，可设置 `FOUNDATIONPOSE_ROOT` 或 `FOUNDATIONPOSE_RESULT_ROOT`。FoundationPose 与 WRS 使用不同 Python 环境时，可分别设置 `FOUNDATIONPOSE_PYTHON`、`WRS_PYTHON`；SAM 源码和权重可用 `SAM_SOURCE_ROOT`、`SAM_CHECKPOINT` 指定。参考姿态默认读取 `20261113_220757_649151/pose.json`，也可用 `XINDUN_REFERENCE_ORIENTATION_POSE` 覆盖。
 - 工位目标和开瓶器模型位置定义在 `workcell_followup.py`。真机和实时动画将开瓶器目标沿世界 `+X` 偏移 `75 mm`，固定 pose 动画也应用相同偏移。
 - 当前 `MOVE_VEL=0.8`、`MOVE_ACC=1.0`。路径通过 `move_jntspace_path` 执行；直线路径以连续 IK 路点表示。
 

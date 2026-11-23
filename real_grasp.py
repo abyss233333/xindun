@@ -22,6 +22,15 @@ from unittest.mock import patch
 
 import numpy as np
 
+from project_paths import (
+    FOUNDATIONPOSE_PYTHON,
+    FOUNDATIONPOSE_ROOT,
+    FOUNDATIONPOSE_SCRIPT,
+    POSE_RESULT_ROOT,
+    SAM_CHECKPOINT,
+    SAM_SOURCE_ROOT,
+    XINDUN_DIR,
+)
 
 SCENE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_DIR = os.path.abspath(os.path.join(SCENE_DIR, ".."))
@@ -35,21 +44,13 @@ import motion.probabilistic.rrt_connect as rrtc
 import basis.robot_math as rm
 
 
-POSE_RESULT_ROOT = os.path.join(
-    r"D:\FoundationPose-main\FoundationPose-main",
-    "foundationpose_world_result",
-)
 TABLE_REFERENCE_POSE_FILE = os.path.join(
     POSE_RESULT_ROOT, "20261116_203145_482154", "pose.json")
-FOUNDATIONPOSE_ROOT = Path(r"D:\FoundationPose-main\FoundationPose-main")
-FOUNDATIONPOSE_SCRIPT = FOUNDATIONPOSE_ROOT / "foundationpose_d435_world_visualize.py"
-FOUNDATIONPOSE_PYTHON = Path(r"D:\conda-envs\foundationpose-win\python.exe")
-FOUNDATIONPOSE_MESH = Path(REPO_DIR) / "xindun_1110" / "objects" / "cf.STL"
-SAM_CHECKPOINT = Path(r"D:\sam_seg\SAM-Tool-main\sam_vit_h_4b8939.pth")
+FOUNDATIONPOSE_MESH = XINDUN_DIR / "objects" / "cf.STL"
 REFERENCE_ORIENTATION_POSE = Path(os.environ.get(
     "XINDUN_REFERENCE_ORIENTATION_POSE",
-    r"D:\FoundationPose-main\FoundationPose-main\foundationpose_world_result\20261113_220757_649151\pose.json",
-))
+    POSE_RESULT_ROOT / "20261113_220757_649151" / "pose.json",
+)).expanduser().resolve()
 LEFT_ROBOT_IP = "192.168.110.12"
 RIGHT_ROBOT_IP = "192.168.110.11"
 ROBOT_PORT = 30004
